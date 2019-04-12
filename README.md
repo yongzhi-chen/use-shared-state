@@ -10,6 +10,9 @@
 npm install --save use-shared-state
 ```
 
+## Demo
+https://codesandbox.io/s/31yp6pr6l1
+
 ## Usage
 
 ```jsx
