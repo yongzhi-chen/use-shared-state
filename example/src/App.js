@@ -1,13 +1,38 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-import ExampleComponent from 'use-shared-state'
+import {useSharedState, createSharedState} from 'use-shared-state'
 
-export default class App extends Component {
-  render () {
-    return (
+createSharedState('app', {
+  label : 'App'
+})
+
+createSharedState('other', 0)
+
+const Child = props => {
+  const [appLabel, setAppLabel] = useSharedState('app')
+  const [sharedCnt, setSharedCnt] = useSharedState('other')
+  
+  return (
+    <div>
+      <p>{sharedCnt}</p>
       <div>
-        <ExampleComponent text='Modern React component module' />
+        <button onClick={() => setSharedCnt(sharedCnt + 1)}>Inc</button>
       </div>
-    )
-  }
+      <input value={appLabel.label} onChange={e => setAppLabel({label : e.target.value})} />
+    </div>
+  )
 }
+
+const App = props => {
+
+  const [appLabel, setAppLabel] = useSharedState('app')
+  return (
+    <div>
+      <h1>{appLabel.label}</h1>
+      <Child />
+      <Child />
+    </div>
+  )
+}
+
+export default App
