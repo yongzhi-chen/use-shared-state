@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {useSharedState, createSharedState} from 'use-shared-state'
 
 createSharedState('app', {
