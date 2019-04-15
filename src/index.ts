@@ -16,9 +16,10 @@ function createSharedState(ns : string,  initState : any) {
 function setSharedState(ns : string, newState : any) {
   const setStateFns = setStatesWithNs[ns]
   setStateFns.forEach(fn => fn(newState))
+  STATE[ns] = newState
 }
 
-function useSharedState(ns : string) {
+function useSharedState<T>(ns : string) : [T, Function] {
   if(STATE[ns] === undefined)
     throw(`The current namspace is not found. Please use createSharedState to create the state associated to namespace ${ns} first`)
   const [state, setState] = useState(STATE[ns])

@@ -1,6 +1,6 @@
 # use-shared-state
 
-> Use shared state with react hook in your functional components.
+Use shared state with namespace using react hook in your function components.
 
 [![NPM](https://img.shields.io/npm/v/use-shared-state.svg)](https://www.npmjs.com/package/use-shared-state) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -11,7 +11,7 @@ npm install --save @mirror/use-shared-state
 ```
 
 ## Demo
-https://codesandbox.io/s/31yp6pr6l1
+https://codesandbox.io/s/zl814j09mp
 
 ## Usage
 
@@ -25,7 +25,7 @@ createSharedState('app', {
 
 createSharedState('other', 0)
 
-const Child = props => {
+const Child = () => {
   const [appLabel, setAppLabel] = useSharedState('app')
   const [sharedCnt, setSharedCnt] = useSharedState('other')
   
@@ -40,7 +40,7 @@ const Child = props => {
   )
 }
 
-const App = props => {
+const App = () => {
 
   const [appLabel, setAppLabel] = useSharedState('app')
   return (
@@ -55,6 +55,18 @@ const App = props => {
 export default App
 
 ```
+
+## Api
+
+```tsx
+createSharedState(namespace : string, initState : any) => void
+```
+Create a shared state associated to given namespace. If you call useSharedState(ns) with namespace that has not been created, an error will be thrown. 
+
+```tsx
+useSharedState(namespace : string) => [sharedState, setSharedState]
+```
+Return sharedState and its set function associated to the namespace. 
 
 ## License
 

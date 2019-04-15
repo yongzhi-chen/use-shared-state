@@ -7,7 +7,7 @@ createSharedState('app', {
 
 createSharedState('other', 0)
 
-const Child = props => {
+const Child = () => {
   const [appLabel, setAppLabel] = useSharedState('app')
   const [sharedCnt, setSharedCnt] = useSharedState('other')
   
@@ -22,9 +22,9 @@ const Child = props => {
   )
 }
 
-const App = props => {
+const App = () => {
 
-  const [appLabel, setAppLabel] = useSharedState('app')
+  const [appLabel] = useSharedState('app')
   return (
     <div>
       <h1>{appLabel.label}</h1>
