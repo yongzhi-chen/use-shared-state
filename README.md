@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save use-shared-state
+npm install --save @mirror/use-shared-state
 ```
 
 ## Demo
@@ -17,7 +17,7 @@ https://codesandbox.io/s/31yp6pr6l1
 
 ```jsx
 import React from 'react'
-import {useSharedState, createSharedState} from 'use-shared-state'
+import {useSharedState, createSharedState} from '@mirror/use-shared-state'
 
 createSharedState('app', {
   label : 'App'

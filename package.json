@@ -1,6 +1,6 @@
 {
   "name": "@mirror/use-shared-state",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Use shared state with react hook in your functional components.",
   "author": "yongzhi-chen",
   "license": "MIT",
