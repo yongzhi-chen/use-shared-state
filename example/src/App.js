@@ -1,14 +1,14 @@
 import React from 'react'
 import {useSharedState, createSharedState} from 'use-shared-state'
 
-createSharedState('app', {
+const useAppState = createSharedState('app', {
   label : 'App'
 })
 
 createSharedState('other', 0)
 
 const Child = () => {
-  const [appLabel, setAppLabel] = useSharedState('app')
+  const [appLabel, setAppLabel] = useAppState()
   const [sharedCnt, setSharedCnt] = useSharedState('other')
   
   return (
